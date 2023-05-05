@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  postgres:
+    build:
+      context: ./docker/pg
+      dockerfile: Dockerfile.pg
+    container_name: cosys-db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+    name: pg-cosys-data

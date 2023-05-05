@@ -1,0 +1,5 @@
+FROM postgres:15.2
+
+COPY ./sql/init.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 5432
